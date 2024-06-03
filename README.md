@@ -76,15 +76,14 @@ False Premise question: Questions that have a false preposition or assumption; f
 
 The dataset includes web search results and mock KGs to mimic real-world RAG retrieval sources. Web search contents were created by storing up to 50 pages from search queries related to each question. Mock KGs were created using the data behind the questions, supplemented with "hard negative" data to simulate a more challenging retrieval environment. Mock APIs facilitate structured searches within these KGs, and we provide the same API for all five domains to simulate Knowledge Graph access.
 
-#### CRAG Dataset Documentation
-[CRAG Dataset Documentation](https://gitlab.aicrowd.com/aicrowd/challenges/meta-comprehensive-rag-benchmark-kdd-cup-2024/meta-comphrehensive-rag-benchmark-starter-kit/-/blob/master/docs/dataset.md)
+#### [CRAG Dataset Documentation](https://gitlab.aicrowd.com/aicrowd/challenges/meta-comprehensive-rag-benchmark-kdd-cup-2024/meta-comphrehensive-rag-benchmark-starter-kit/-/blob/master/docs/dataset.md)
 
-### 3、解决方案
+### 3、Solution
 
-#### 3.1 pdf解析
+#### 3.1 Web page parser
 
 ##### 3.1.1 pdf分块解析
-![分块解析示例图](images/01.png)
+![分块解析示例图](images/html.jpeg)
 如图所示，我们希望pdf解析能尽可能的按照快状进行解析，每一块当做一个样本，这样能尽可能的保证pdf中文本内容的完整性
 改进==》希望借助OCR进行pdf的块状识别
 
