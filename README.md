@@ -82,10 +82,77 @@ The dataset includes web search results and mock KGs to mimic real-world RAG ret
 
 #### 3.1 Web page parser
 
-##### 3.1.1 pdf分块解析
+##### 3.1.1 Web page divide into sections based on titles
+[url](https://www.dunkest.com/en/nba/news/14294/nba-assist-record-all-time-leaders)
 ![分块解析示例图](images/01.png)
-如图所示，我们希望pdf解析能尽可能的按照快状进行解析，每一块当做一个样本，这样能尽可能的保证pdf中文本内容的完整性
-改进==》希望借助OCR进行pdf的块状识别
+
+we use the main content analysis function to parser the web page that can obtain the core content, the parser can get the markdown format data, like this:
+
+Who is the best assistman of all time in the NBA? And who of the today’s
+players falls into the **NBA All Time Assist Leaders**?
+
+## Most Assists in NBA history
+
+The all-time NBA record for assists belongs to **John Stockton** who he
+distributed **15,806 assists** to his teammates, with an average of 10.5
+assists per game and a personal best of 28 assists in a game set in 1991.
+
+Stockton is a legend in the Utah Jazz history and **one of the best point
+guards of all time** who had the perfect attacking terminal in Karl Malone.
+Unfortunately Stockton never managed to win an NBA title despite the 5
+Conference Finals and 2 Finals where the Jazz had to bow to Michael Jordan.
+
+_VIDEO: Best John Stockton passing skills_
+
+## Most Assists in NBA Game
+
+The player with the most assists in an NBA game is **Scott Skiles** , who
+scored **30 assists** in the game Orlando Magic-Denver Nuggets in 1990, which
+ended 155-116. Here the complete list.
+
+## Most Assists Per Game
+
+**Magic Johnson** holds the NBA record for average assists with **11.19
+assists per game**. Immediately after him there are John Stockton (10.51
+assists per game) and Oscar Robertson (9.51 assists per game) also the leader
+for all-time triple-doubles.
+
+**Chris Paul** stands out among the active players. He holds the 4th place of
+the list with 9.43 assists per game.
+
+_VIDEO: Chris Paul Best Assist 2019-2020_
+
+## NBA All-Time Assist Leaders
+
+Rank| Players| Assist  
+---|---|---  
+1| John Stockton| 15.806  
+2| Jason Kidd| 12.091  
+3| **Chris Paul** *| 11.593  
+4| **LeBron James** *| 10.496  
+5| Steve Nash| 10.335  
+6| Mark Jackson| 10.334  
+7| Magic Johnson| 10.141  
+8| Oscar Robertson| 9.887  
+9| **Russell Westbrook***|  9.221  
+10| Isiah Thomas| 9.061  
+11| Gary Payton| 8.966  
+12| Andre Miller| 8.524  
+13| Rod Strickland| 7.987  
+14| Rajon Rondo| 7.584  
+15| Maurice Cheecks| 7.392  
+16| Lenny Wilkens| 7.211  
+17| Terry Porter| 7.160  
+18| Tim Hardaway| 7.095  
+19| **James Harden ***|  7.043  
+20| Tony Parker| 7.036  
+* In grassetto i giocatori attivi
+
+## Related articles
+
+Loading...
+
+
 
 ##### 3.1.2 pdf 滑窗法解析
 ![滑窗法解析示例图1](images/02.png)
