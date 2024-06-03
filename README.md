@@ -83,7 +83,7 @@ The dataset includes web search results and mock KGs to mimic real-world RAG ret
 #### 3.1 Web page parser
 
 ##### 3.1.1 pdf分块解析
-![分块解析示例图](images/html.jpeg)
+![分块解析示例图](images/01.png)
 如图所示，我们希望pdf解析能尽可能的按照快状进行解析，每一块当做一个样本，这样能尽可能的保证pdf中文本内容的完整性
 改进==》希望借助OCR进行pdf的块状识别
 
