@@ -143,7 +143,7 @@ We use vector retriever and bm25 retriever
 ### 4、rank
 
 
-1)Ranked 3st in the Competition: meta-kdd-cup-24-crag-retrieval-summarization leadboard
+1)Ranked 3st in the Competition: meta-kdd-cup-24-crag-retrieval-summarization
 [phase1 task1 rank3 leadboard](https://www.aicrowd.com/challenges/meta-comprehensive-rag-benchmark-kdd-cup-2024/problems/meta-kdd-cup-24-crag-retrieval-summarization/leaderboards)
 
 ![phase1 task1 rank3](images/04.png)
