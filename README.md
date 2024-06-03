@@ -116,53 +116,31 @@ print(extracted_markdown)
 
 ```
 
-如图1,2 所示，我们可以看到图1和图2上下文是连续的，如何保证文本内容的跨页连续性问题，我们提出滑窗法。
-具体的把pdf中所有内容当做一个字符串来处理，按照句号进行分割，根据分割后的数组进行滑窗。具体的如下所示:
+#### 3.2 Retriever
 
-["aa","bb","cc","dd"]
+We use vector retriever and bm25 retriever
 
-如果字符串长度为4, 经过滑窗后的结果如下:
 
-aabb
+##### 3.2.1 vector retriever
 
-bbcc
+[Alibaba-NLP/gte-large-en-v1.5](https://huggingface.co/Alibaba-NLP/gte-large-en-v1.5)
 
-ccdd
+##### 3.2.2 bm25 retriever
 
-我们希望滑窗法像卷积一样可以不同的kernel,Stride,来寻找能覆盖到的最优的样本召回
 
-#### 3.2 召回
-
-召回主要使用langchain中的retrievers进行文本的召回。我们知道向量召回和bm25召回具有互补性，因此选用了这两个进行召回
-
-##### 3.2.1 向量召回
-
-向量召回利用 FAISS 进行索引创建和查找，embedding 利用 [M3E-large](https://modelscope.cn/models/Jerry0/M3E-large/summary) 或者[bge-large-zh](https://modelscope.cn/models/AI-ModelScope/bge-large-zh/summary)
-
-##### 3.2.2 bm25召回
-
-bm25召回利用 langchain自带的bm25 retrievers
-
-#### 3.3 重排序
-
-1、重排序是对召回的文本进行进一步的重排，以获得更精准，数据量更少的可能答案。
-2、向量召回中使用的是bi-encoder结构，而bge-reranker-large 使用的是 cross-encoder结构，cross-encoder结构一定程度上要优于bi-encoder
+#### 3.3 Rerank
 
 ##### 3.3.1 cross-encoder
 
-重排序此处使用了 [bge-reranker-large](https://modelscope.cn/models/Xorbits/bge-reranker-large/files)
+[BAAI/bge-reranker-v2-gemma](https://huggingface.co/BAAI/bge-reranker-v2-gemma)
 
-#### 3.4 推理优化
+#### 3.4 inference
 
 ##### 3.4.1 vllm batch
 
-vllm 利用page attention 技术使推理速度得到提升，batch推理比普通推理有接近1倍的提升空间
+[vllm](https://github.com/vllm-project/vllm)
 
-##### 3.4.2 tensorRT-LLM
+### 4、rank
 
-tensorRT-LLM是英伟达推出的推理框架,并且提供了c++和python的调用方式。关于qwen的tensorRT-LLM使用请参考官方介绍[tensorRT-LLM Qwen](https://github.com/NVIDIA/TensorRT-LLM/tree/main/examples/qwen)
-
-### 4、排名
-
-[初赛2名](https://tianchi.aliyun.com/competition/entrance/532154/rankingList)
-[复赛13名](https://tianchi.aliyun.com/competition/entrance/532154/rankingList)
+[phase1 task1 3]()
+[phase2]()

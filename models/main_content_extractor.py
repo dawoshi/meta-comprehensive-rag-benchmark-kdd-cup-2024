@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup, Tag
 from typing import List, Union
 import html2text
-from trafilatura_extends import TrafilaturaExtends
+from models.trafilatura_extends import TrafilaturaExtends
 
 REMOVE_ELEMENT_LIST_DEFAULT: List[str] = [
     "script",
