@@ -57,7 +57,7 @@ answer: marc benioff spent 13 years at oracle, before launching   salesforce.
 
 #### 2.2  CRAG Dataset Description
 
-####📝 QUESTION ANSWER PAIRS
+#### 📝 QUESTION ANSWER PAIRS
 
 CRAG includes question-answer pairs that mirror real scenarios. It covers five domains: Finance, Sports, Music, Movies, and Encyclopedia Open domain. These domains represent the spectrum of information change rates—rapid (Finance and Sports), gradual (Music and Movies), and stable (Open domain).
 
@@ -77,8 +77,7 @@ False Premise question: Questions that have a false preposition or assumption; f
 The dataset includes web search results and mock KGs to mimic real-world RAG retrieval sources. Web search contents were created by storing up to 50 pages from search queries related to each question. Mock KGs were created using the data behind the questions, supplemented with "hard negative" data to simulate a more challenging retrieval environment. Mock APIs facilitate structured searches within these KGs, and we provide the same API for all five domains to simulate Knowledge Graph access.
 
 #### CRAG Dataset Documentation
-(CRAG Dataset Documentation)[https://gitlab.aicrowd.com/aicrowd/challenges/meta-comprehensive-rag-benchmark-kdd-cup-2024/meta-comphrehensive-rag-benchmark-starter-kit/-/blob/master/docs/dataset.md]
-
+[CRAG Dataset Documentation](https://gitlab.aicrowd.com/aicrowd/challenges/meta-comprehensive-rag-benchmark-kdd-cup-2024/meta-comphrehensive-rag-benchmark-starter-kit/-/blob/master/docs/dataset.md)
 
 ### 3、解决方案
 
