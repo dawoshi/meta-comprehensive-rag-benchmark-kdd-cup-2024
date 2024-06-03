@@ -83,22 +83,16 @@ The dataset includes web search results and mock KGs to mimic real-world RAG ret
 #### 3.1 Web page parser
 
 ##### 3.1.1 Web page divide into sections based on titles
-[url](https://www.dunkest.com/en/nba/news/14294/nba-assist-record-all-time-leaders)
+[web page url](https://www.dunkest.com/en/nba/news/14294/nba-assist-record-all-time-leaders)
+
 ![block Analysis diagram](images/01.png)
 
 we use the main content analysis function to parser the web page that can obtain the core content, the parser can get the markdown format data, like this:
 
 ![parse result](images/02.png)
 
-## Related articles
-
-Loading...
 
 
-
-##### 3.1.2 pdf 滑窗法解析
-![滑窗法解析示例图1](images/02.png)
-![滑窗法解析示例图2](images/03.png)
 如图1,2 所示，我们可以看到图1和图2上下文是连续的，如何保证文本内容的跨页连续性问题，我们提出滑窗法。
 具体的把pdf中所有内容当做一个字符串来处理，按照句号进行分割，根据分割后的数组进行滑窗。具体的如下所示:
 
