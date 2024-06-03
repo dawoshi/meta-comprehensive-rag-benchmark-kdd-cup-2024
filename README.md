@@ -82,16 +82,39 @@ The dataset includes web search results and mock KGs to mimic real-world RAG ret
 
 #### 3.1 Web page parser
 
-##### 3.1.1 Web page divide into sections based on titles
+##### 3.1.1  Web page divide into sections based on titles
 [web page url](https://www.dunkest.com/en/nba/news/14294/nba-assist-record-all-time-leaders)
 
 ![block Analysis diagram](images/01.png)
 
-we use the main content analysis function to parser the web page that can obtain the core content, the parser can get the markdown format data, like this:
+#####  We use the main content analysis function to parser the web page that can obtain the core content, the parser can get the markdown format data, like this:
 
 ![parse result](images/02.png)
 
+##### You can use the models/main_content_extractor.py code to parser the page html
 
+```python
+
+url = "https://www.dunkest.com/en/nba/news/14294/nba-assist-record-all-time-leaders"
+response = requests.get(url)
+response.encoding = 'utf-8'
+content = response.text
+start = time.perf_counter()
+
+# Get HTML with main content extracted from HTML
+extracted_html = MainContentExtractor.extract(content)
+
+# Get HTML with main content extracted from Markdown
+extracted_markdown = MainContentExtractor.extract(content, include_links = False, output_format="markdown")
+
+end = time.perf_counter()
+
+# program time cost
+elapsed = end - start
+print(f"time cost: {elapsed} / millisecond\n")
+print(extracted_markdown)
+
+```
 
 如图1,2 所示，我们可以看到图1和图2上下文是连续的，如何保证文本内容的跨页连续性问题，我们提出滑窗法。
 具体的把pdf中所有内容当做一个字符串来处理，按照句号进行分割，根据分割后的数组进行滑窗。具体的如下所示:
