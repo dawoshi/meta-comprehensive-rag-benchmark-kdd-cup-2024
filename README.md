@@ -8,33 +8,33 @@
 </p>
 
 
-### 1、代码结构
+### 1、code struct
 
 ```text
 .
-├── Dockerfile
 ├── README.md
-├── bm25_retriever.py
-├── build.sh
-├── config.py
 ├── data
-│   ├── result.json
-│   ├── test_question.json
-│   └── train_a.pdf
-├── faiss_retriever.py
-├── vllm_model.py
-├── pdf_parse.py
-├── pre_train_model
-│   ├── Qwen-7B-Chat
-│   │   └── download.py
-│   ├── bge-reranker-large
-│   └── m3e-large
-├── qwen_generation_utils.py
+│   └── dev_data.jsonl.bz2
+├── images
+├── local_evaluation.py
+├── models
+│   ├── bm25_retriever.py
+│   ├── faiss_retriever.py
+│   ├── main_content_extractor.py
+│   ├── rag_llama_baseline.py
+│   ├── rerank_model.py
+│   ├── stopwords.txt
+│   ├── trafilatura_extends.py
+│   ├── user_config.py
+│   └── utils.py
+├── pretrained_model
+│   ├── bge-rerank
+│   ├── gte-large-en
+│   └── llama3-8b
+├── prompts
+│   └── templates.py
 ├── requirements.txt
-├── rerank_model.py
-├── run.py
-├── run.sh
-└── vllm_wrapper.py
+└── tokenizer
 ```
 
 ### 2、[Introduction](https://www.aicrowd.com/challenges/meta-comprehensive-rag-benchmark-kdd-cup-2024)
@@ -142,5 +142,5 @@ We use vector retriever and bm25 retriever
 
 ### 4、rank
 
-[phase1 task1 3]()
+[phase1 task1 3](https://www.aicrowd.com/challenges/meta-comprehensive-rag-benchmark-kdd-cup-2024/problems/meta-kdd-cup-24-crag-retrieval-summarization/leaderboards)
 [phase2]()
