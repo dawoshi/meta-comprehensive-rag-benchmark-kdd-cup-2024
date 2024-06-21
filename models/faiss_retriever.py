@@ -12,7 +12,7 @@ from langchain_community.vectorstores import FAISS
 from transformers import AutoTokenizer, AutoModel
 
 class TextEmbedding(Embeddings, ABC):
-    def __init__(self, emb_model_name_or_path, batch_size=64, max_len=512, device = "cuda:0", **kwargs):
+    def __init__(self, emb_model_name_or_path, batch_size=2, max_len=512, device = "cuda", **kwargs):
         super().__init__(**kwargs)
         self.model = AutoModel.from_pretrained(
                     emb_model_name_or_path,

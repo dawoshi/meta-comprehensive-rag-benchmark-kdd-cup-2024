@@ -3,7 +3,7 @@ import json
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 class reRankLLM(object):
-    def __init__(self, model_path, max_length = 512, device='cuda:0', batch_size = 2):
+    def __init__(self, model_path, max_length = 512, device='cuda', batch_size = 2):
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         self.model = AutoModelForSequenceClassification.from_pretrained(model_path).half().to(device).eval()
         self.max_length = max_length

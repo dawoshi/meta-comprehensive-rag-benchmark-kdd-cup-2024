@@ -30,10 +30,9 @@ from langchain.schema import Document
 from langchain.schema.embeddings import Embeddings
 
 
-base = "/root/autodl-tmp/codes/meta-comphrehensive-rag-benchmark-starter-kit/"
-RERANKER_MODEL_PATH = base + "models/pretrained_model/bge-rerank"
-EMBEDDING_MODEL_PATH = base + "models/pretrained_model/gte-large-en"
-LLAMA3_MODEL_PATH = base + "models/pretrained_model/llama3-8b"
+RERANKER_MODEL_PATH = "models/pretrained_model/bge-rerank"
+EMBEDDING_MODEL_PATH = "models/pretrained_model/gte-large-en"
+LLAMA3_MODEL_PATH = "models/pretrained_model/llama3-8B"
 #### CONFIG PARAMETERS ---
 
 # Define the number of context sentences to consider for generating an answer.
@@ -44,11 +43,11 @@ MAX_CONTEXT_SENTENCE_LENGTH = 1000
 MAX_CONTEXT_REFERENCES_LENGTH = 4000
 
 # Batch size you wish the evaluators will use to call the `batch_generate_answer` function
-AICROWD_SUBMISSION_BATCH_SIZE = 4 # TUNE THIS VARIABLE depending on the number of GPUs you are requesting and the size of your model.
+AICROWD_SUBMISSION_BATCH_SIZE = 2 # TUNE THIS VARIABLE depending on the number of GPUs you are requesting and the size of your model.
 
 # VLLM Parameters 
-VLLM_TENSOR_PARALLEL_SIZE = 1 # TUNE THIS VARIABLE depending on the number of GPUs you are requesting and the size of your model.
-VLLM_GPU_MEMORY_UTILIZATION = 0.75 #0.85  # TUNE THIS VARIABLE depending on the number of GPUs you are requesting and the size of your model.
+VLLM_TENSOR_PARALLEL_SIZE = 2 # TUNE THIS VARIABLE depending on the number of GPUs you are requesting and the size of your model.
+VLLM_GPU_MEMORY_UTILIZATION = 0.79 #0.85  # TUNE THIS VARIABLE depending on the number of GPUs you are requesting and the size of your model.
 
 # Sentence Transformer Parameters
 SENTENTENCE_TRANSFORMER_BATCH_SIZE = 128 # TUNE THIS VARIABLE depending on the size of your embedding model and GPU mem available
@@ -194,11 +193,11 @@ class RAGModel:
     which includes all the key components of a RAG lifecycle.
     """
     def __init__(self):
-        self.initialize_models()
         self.chunk_extractor = ChunkExtractor()
         self.bm25 = Bm25Retriever()
         self.reranker = reRankLLM(RERANKER_MODEL_PATH)
         self.faiss = FaissRetriever(EMBEDDING_MODEL_PATH)
+        self.initialize_models()
         self.emb_top_k = 7  # 4
         self.bm25_top_k = 4  # 2
         self.rerank_top_k = 6
@@ -229,8 +228,8 @@ class RAGModel:
         self.llm = vllm.LLM(
             self.model_name,
             tensor_parallel_size=VLLM_TENSOR_PARALLEL_SIZE, 
-            gpu_memory_utilization=VLLM_GPU_MEMORY_UTILIZATION, 
             trust_remote_code=True,
+            gpu_memory_utilization=VLLM_GPU_MEMORY_UTILIZATION, 
             dtype="half", # note: bfloat16 is not supported on nvidia-T4 GPUs
             enforce_eager=True
         )
